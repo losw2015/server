@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace имитация
+{
+    class Program
+    {
+        private static string text;
+        private static string login;
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello user");
+            Console.WriteLine("Login: ");
+            login = Console.ReadLine();
+
+      
+            while (true)
+            {
+                Console.WriteLine("Text:");
+                text = Console.ReadLine();
+
+                SendToServer(login.ToString(), text.ToString());
+
+                string reply = GetFromServer();
+                Console.WriteLine(reply);
+            }
+        }
+        static private void SendToServer(string login, string text)
+        {
+
+        }
+
+        private static string GetFromServer()
+        {
+            StringBuilder str = new StringBuilder();
+
+            str.Append(login);
+            str.Append(" ");
+            str.Append("say: ");
+            str.Append(text);
+            str.Append(" ");
+            str.Append(DateTime.Now.ToString());
+
+            return str.ToString();
+        }
+    }
+}
